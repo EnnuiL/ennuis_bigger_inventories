@@ -1,9 +1,9 @@
 plugins {
 	id("maven-publish")
-	alias(libs.plugins.quilt.loom)
+	alias(libs.plugins.fabric.loom)
 }
 
-project.version = "0.2.0-beta.4+1.21.1"
+project.version = "0.2.0-beta.5+1.21.1"
 project.group = "io.github.ennuil"
 
 loom {
@@ -22,8 +22,11 @@ repositories {}
 
 dependencies {
 	minecraft(libs.minecraft)
-	mappings(loom.officialMojangMappings())
-	modImplementation(libs.quilt.loader)
+	mappings(loom.layered {
+		officialMojangMappings()
+		parchment(libs.parchment)
+	})
+	modImplementation(libs.fabric.loader)
 
 	modImplementation(libs.fabric.api)
 }

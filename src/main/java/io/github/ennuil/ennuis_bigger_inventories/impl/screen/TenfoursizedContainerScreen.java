@@ -1,15 +1,16 @@
 package io.github.ennuil.ennuis_bigger_inventories.impl.screen;
 
 import io.github.ennuil.ennuis_bigger_inventories.impl.ModUtils;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import org.quiltmc.loader.api.minecraft.ClientOnly;
 
-@ClientOnly
+@Environment(EnvType.CLIENT)
 public class TenfoursizedContainerScreen extends AbstractContainerScreen<TenfoursizedContainerMenu> implements MenuAccess<TenfoursizedContainerMenu> {
 	private static final ResourceLocation TEXTURE = ModUtils.id("textures/gui/container/generic_10x6.png");
 	private final int rows;
